@@ -1,3 +1,5 @@
+<!-- Create A new Project -->
+composer create-project --prefer-dist laravel/laravel Project_Name
 <!-- To migrate Tables -->
 php artisan migrate
 <!-- Create Model & migrate it  -->
