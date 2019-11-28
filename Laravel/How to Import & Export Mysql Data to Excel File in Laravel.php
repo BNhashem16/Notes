@@ -1,20 +1,21 @@
 1. composer require maatwebsite/excel
-2. 'providers' => [
- ....
+2. In config/app.php 
+	'providers' => [
+	 ....
 
- Maatwebsite\Excel\ExcelServiceProvider::class,
+	 Maatwebsite\Excel\ExcelServiceProvider::class,
 
-],
+	],
 
-'aliases' => [
+	'aliases' => [
 
- ....
+	 ....
 
- 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+	 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
-],
+	],
 
-3. php artisan vendor:publish
+3. php artisan vendor:publish	=> 8
 4. php artisan queue:table
 5. php artisan migrate
 6. php artisan make:job Jop_Name
