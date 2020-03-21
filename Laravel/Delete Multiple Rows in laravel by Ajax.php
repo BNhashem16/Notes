@@ -12,6 +12,9 @@ Route::delete('/sales/deleteAll', 'backend\SalesController@deleteAll')->name('de
     }
 
 <!-- In View HTML Code -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 <button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ route('deleteAll') }}">Delete All Selected</button>
     <table class="table table-striped table-bordered">
         <thead>

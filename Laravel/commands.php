@@ -10,3 +10,14 @@ php artisan make:controller folder/NameController --resource
 php artisan route:list
 <!-- To Refresh Database -->
 php artisan make:migration refresh
+
+
+php artisan cache:clear
+php artisan config:clear 
+php artisan queue:restart
+php artisan route:clear
+
+php artisan cache:table
+
+
+php artisan queue:work

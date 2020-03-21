@@ -1,0 +1,15 @@
+Solution: Added "symfony/translation": "4.3.8" in composer.json as follows
+
+"require": {
+     ...
+     "symfony/translation": "4.3.8",
+}
+
+composer update
+
+or (if php version is not recommended on the server)
+composer update --ignore-platform-reqs
+
+
+===================================
+ composer require symfony/http-kernel

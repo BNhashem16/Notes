@@ -1,0 +1,273 @@
+=======================
+Create The Vue Instance
+=======================
+<div id="ahmed" >
+	<p> Hello {{ name }} , happy to see You </p>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			name: 'Ahmed',
+		}
+	})
+</script>
+=================
+Methods in Vue JS
+=================
+<div id="ahmed" >
+	<p>{{ saySomething() }} </p>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		method: {
+			saySomething: function(){
+				return 'Hello From Vue js';
+			}
+		}
+	})
+</script>
+==========
+Directives
+==========
+<div id="ahmed" >
+	<p v-text="name"></p>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			name: 'Ahmed',
+		}
+	})
+</script>
+
+==================
+Directives - V-For
+==================
+<div id="ahmed" >
+	<ul>
+		<li v-for="skill in skills" ></li>
+			{{ skill }}
+	</ul>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			name: 'Ahmed',
+			skills: ['HTML' , 'CSS' , 'PHP'],
+		}
+	})
+</script>
+==================
+Directives - V-IF
+==================
+<div id="ahmed" >
+	<p v-if="age > 50" > You Are Too Old </p>
+	<p v-else-if="age > 15 && age < 40" > You Are Not Too Old  </p>
+	<p v-else> You Are Still Young</p>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			age: 36,
+			skills: ['HTML' , 'CSS' , 'PHP'],
+		}
+	})
+</script>
+======
+V-bind
+======
+<div id="ahmed" >
+	<a v-bind:href="imageUrl">
+		<img v-bind:src="imageSrc" v-bind:alt="imageAltTeat" >
+	</a>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			age: 36,
+			imageSrc: 'imgs/10.jpg',
+			imageAltTeat: 'The Alternate Text',
+			imageUrl: 'www.google.com',
+		}
+	})
+	// V-bind:atteribute == :atteribute
+</script>
+====
+V-on
+====
+<div id="ahmed" >
+	<h1>Wellcome in Vue.js</h1>
+	<p>Counter is {{ counter }} </p>
+	<button @click="counter++" >Increase Counter</button>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			age: 36,
+			counter: 0 ,
+		}
+	})
+</script>
+=======
+V-model
+=======
+<div id="ahmed" >
+	<h1>Wellcome in Vue.js</h1>
+	<form>
+		<input type="text" name="" :value="name" placeholder="Using v-bind" >
+		<input type="text" name="" v-model="name" placeholder="Using v-model">
+	</form>
+	Your Name Is {{ name }}
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#ahmed',
+		data: {
+			name: 'Ahmed',
+			age: 36,
+			counter: 0 ,
+		}
+	})
+</script>
+======================
+Create Basic Component
+======================
+<div id="ahmed" >
+	<h1>Wellcome in Vue.js</h1>
+	<component-name></component-name>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    	Vue.component('component-name' , {
+    		// Data in Component Must Be Function
+    		data: function() {
+    			return {
+          name: 'Ahmed',
+    			counter: 0
+          }
+    		},
+    		template: '<p @click="counter++" >Hello {{name}} You Clicked {{ counter }} Times </p>'
+    	})
+    	var vm = new Vue({
+    		el: '#ahmed',
+    		data: {
+    			age: 36,
+    			counter: 0 ,
+    		}
+    	})
+    </script>
+============
+Passing Data
+============
+<div id="ahmed" >
+	<h1>Wellcome in Vue.js</h1>
+	<component-name :source="source" ></component-name>
+</div>
+<script src="js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    	Vue.component('component-name' , {
+    		// Data in Component Must Be Function
+    		data: function() {
+    			return {
+          name: 'Ahmed',
+    			counter: 0
+          }
+    		},
+    		props: ['source'],
+    		template: '<p @click="counter++" >Hello {{name}} You Clicked {{ counter }} Times </p>'
+    	})
+    	var vm = new Vue({
+    		el: '#ahmed',
+    		data: {
+    			age: 36,
+    			counter: 0 ,
+    			source: 'Ahmed Mohamed Salah',
+    		}
+    	})
+    </script>
+=====
+Watch
+=====
+    <div id="ahmed" >
+    	<h1>Wellcome in Vue.js</h1>
+    	<label>Hours</label>
+      <input type="text" v-model="hour" >
+
+    	<label>Minutes</label>
+      <input type="text" v-model="minute" >
+
+      <label>Seconds</label>
+      <input type="text" v-model="second" >
+    </div>
+
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    	var vm = new Vue({
+    		el: '#ahmed',
+    		data: {
+          hour: 0,
+          minute: 0,
+          second: 0,
+
+    		} ,
+        method: {
+
+        } ,
+        computed: {
+
+        } ,
+        watch: {
+          hour: function(v) {
+            this.minute = v * 60;
+          } ,
+
+          minute: function(v) {
+            this.hour = v / 60;
+            this.second = v * 60;
+          } ,
+
+          second: function(v) {
+            this.minute = v / 60;
+          } ,
+
+          dol: function (d) {
+            this.eg = d * 17;
+            this.sar = s * 4;
+          }
+        },
+    	})
+    </script>
+==========================
+==Setup and Confegration==
+==========================
+--> please pick a present: Manually Select Features 
+--> Check the Feature Needed 
+babel
+Router
+Vuex
+CSS Pre-processors
+--> Pick a css pre - Processor 
+ Sass/SCSS (with node-sass)
+--> Pick a linter / formatter config:
+ESLint + Prettier
+--> Pick additional lint features:
+Lint on save
+--> Pick a unit testing solution:
+ Jest
+--> Where do you prefer placing config for Babel, ESLint, etc.?
+In dedicated config files
